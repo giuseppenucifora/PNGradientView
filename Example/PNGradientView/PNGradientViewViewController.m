@@ -7,6 +7,7 @@
 //
 
 #import "PNGradientViewViewController.h"
+#import "PNGradientView.h"
 
 @interface PNGradientViewViewController ()
 
@@ -17,7 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    [(PNGradientView*)self.view setBackgroundLayerWithColors:@[[UIColor greenColor],[UIColor whiteColor],[UIColor redColor]] startPoint:CGPointMake(0, 0)];
 }
 
 - (void)didReceiveMemoryWarning

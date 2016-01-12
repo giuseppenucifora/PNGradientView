@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'PNGradientView_Example', :exclusive => true do
+target 'PNGradientView_Example' do
   pod "PNGradientView", :path => "../"
 end
 
-target 'PNGradientView_Tests', :exclusive => true do
+target 'PNGradientView_Tests' do
   pod "PNGradientView", :path => "../"
 
   pod 'Specta'

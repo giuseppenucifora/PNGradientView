@@ -1,0 +1,6 @@
+framework module PNGradientView {
+  umbrella header "PNGradientView-umbrella.h"
+
+  export *
+  module * { export * }
+}
