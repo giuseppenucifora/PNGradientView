@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "PNGradientView"
-s.version          = "0.1.0"
+s.version          = "0.1.5"
 s.summary          = "PNGradientView is a UIView subclassing with gradient support"
 
 # This description is used to generate tags and improve search results.
@@ -35,5 +35,6 @@ s.resource_bundles = {
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'QuartzCore'
-# s.dependency 'AFNetworking', '~> 2.3'
+s.dependency 'RZDataBinding'
+
 end

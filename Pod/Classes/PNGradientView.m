@@ -7,6 +7,7 @@
 //
 
 #import "PNGradientView.h"
+#import <RZDataBinding/RZDataBinding.h>
 
 @interface PNGradientView()
 
@@ -24,9 +25,10 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        [self addObserver:self forKeyPath:@"bounds" options:0 context:nil];
+        
         _colors = [[NSMutableArray alloc] init];
         _cgColors = [[NSMutableArray alloc] init];
+        [self rz_addTarget:self action:@selector(valueChanged:) forKeyPathChange:@"bounds"];
     }
     return self;
 }
@@ -34,9 +36,10 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self addObserver:self forKeyPath:@"bounds" options:0 context:nil];
+        
         _colors = [[NSMutableArray alloc] init];
         _cgColors = [[NSMutableArray alloc] init];
+        [self rz_addTarget:self action:@selector(valueChanged:) forKeyPathChange:@"bounds"];
     }
     return self;
 }
@@ -44,9 +47,10 @@
 - (instancetype) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addObserver:self forKeyPath:@"bounds" options:0 context:nil];
+        
         _colors = [[NSMutableArray alloc] init];
         _cgColors = [[NSMutableArray alloc] init];
+        [self rz_addTarget:self action:@selector(valueChanged:) forKeyPathChange:@"bounds"];
     }
     return self;
 }
@@ -108,10 +112,15 @@
     });
 }
 
+/*
+ NSString* const kRZDBChangeKeyObject  = @"RZDBChangeObject";
+ NSString* const kRZDBChangeKeyOld     = @"RZDBChangeOld";
+ NSString* const kRZDBChangeKeyNew     = @"RZDBChangeNew";
+ NSString* const kRZDBChangeKeyKeyPath = @"RZDBChangeKeyPath";
+ */
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (object == self && [keyPath isEqualToString:@"bounds"]) {
+- (void) valueChanged:(NSDictionary *) value {
+    if ([value objectForKey:kRZDBChangeKeyNew]) {
         if(_gradientLayer) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setBackgroundLayerWithColors:_colors startPoint:_startPoint];

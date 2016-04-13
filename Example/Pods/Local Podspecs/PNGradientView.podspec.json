@@ -1,15 +1,15 @@
 {
   "name": "PNGradientView",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "summary": "PNGradientView is a UIView subclassing with gradient support",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/PNGradientView",
+  "homepage": "https://github.com/giuseppenucifora/PNGradientView",
   "license": "MIT",
   "authors": {
     "Giuseppe Nucifora": "me@giuseppenucifora.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/PNGradientView.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/giuseppenucifora/PNGradientView.git",
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "7.0"
@@ -21,5 +21,10 @@
       "Pod/Assets/*.png"
     ]
   },
-  "frameworks": "QuartzCore"
+  "frameworks": "QuartzCore",
+  "dependencies": {
+    "RZDataBinding": [
+
+    ]
+  }
 }

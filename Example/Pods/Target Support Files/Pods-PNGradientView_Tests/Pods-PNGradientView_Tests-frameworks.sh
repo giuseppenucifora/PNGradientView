@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PNGradientView_Tests/PNGradientView.framework"
+  install_framework "Pods-PNGradientView_Tests/RZDataBinding.framework"
   install_framework "Pods-PNGradientView_Tests/Expecta.framework"
   install_framework "Pods-PNGradientView_Tests/Expecta_Snapshots.framework"
   install_framework "Pods-PNGradientView_Tests/FBSnapshotTestCase.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PNGradientView_Tests/PNGradientView.framework"
+  install_framework "Pods-PNGradientView_Tests/RZDataBinding.framework"
   install_framework "Pods-PNGradientView_Tests/Expecta.framework"
   install_framework "Pods-PNGradientView_Tests/Expecta_Snapshots.framework"
   install_framework "Pods-PNGradientView_Tests/FBSnapshotTestCase.framework"

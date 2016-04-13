@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PNGradientView_Example/PNGradientView.framework"
+  install_framework "Pods-PNGradientView_Example/RZDataBinding.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PNGradientView_Example/PNGradientView.framework"
+  install_framework "Pods-PNGradientView_Example/RZDataBinding.framework"
 fi

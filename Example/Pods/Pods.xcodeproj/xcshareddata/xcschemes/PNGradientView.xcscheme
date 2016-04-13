@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '963AFB80CB68E667D89A4C7B'
+               BlueprintIdentifier = 'A51FCBC4CED1FD3D48C2F214'
                BlueprintName = 'PNGradientView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PNGradientView.framework'>
