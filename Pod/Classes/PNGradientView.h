@@ -12,4 +12,8 @@
 
 - (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint;
 
+- (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint angle:(CGFloat) angle;
+
+- (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint endPoint:(CGPoint) endPoint;
+
 @end

@@ -19,8 +19,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [(PNGradientView*)self.view setBackgroundLayerWithColors:@[[UIColor greenColor],[UIColor whiteColor],[UIColor redColor]] startPoint:CGPointMake(0, 0)];
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    [(PNGradientView*)self.view setBackgroundLayerWithColors:@[[UIColor greenColor],[UIColor redColor]] startPoint:CGPointMake(0, 0) angle:0.5];
 }
 
 - (void)didReceiveMemoryWarning

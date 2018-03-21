@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSMutableArray *colors;
 @property (nonatomic, strong) NSMutableArray *cgColors;
 @property (nonatomic) CGPoint startPoint;
+@property (nonatomic) CGPoint endPoint;
 @property (nonatomic) BOOL didUpdateConstraints;
 
 
@@ -56,6 +57,19 @@
 }
 
 - (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint {
+    [self setBackgroundLayerWithColors:colors startPoint:startPoint endPoint:CGPointZero];
+}
+
+- (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint angle:(CGFloat) angle {
+    
+    float c = pow(sinf((2*M_PI*((angle+0.25)/2))),2);
+    float d = pow(sinf((2*M_PI*((angle+0.5)/2))),2);
+    
+    [self setBackgroundLayerWithColors:colors startPoint:startPoint endPoint:CGPointMake(c, d)];
+}
+
+- (void) setBackgroundLayerWithColors:(NSArray *) colors startPoint:(CGPoint) startPoint endPoint:(CGPoint) endPoint {
+ 
     if (colors && [colors count] > 0) {
         _colors = [[NSMutableArray alloc] initWithArray:colors];
         [_cgColors removeAllObjects];
@@ -65,6 +79,7 @@
         }
         
         _startPoint = startPoint;
+        _endPoint = endPoint;
         
         //[_gradientLayer removeFromSuperlayer];
         if (!_gradientLayer) {
@@ -83,6 +98,9 @@
         
         
         _gradientLayer.startPoint = _startPoint;
+        if (!CGPointEqualToPoint(_endPoint, CGPointZero)) {
+            _gradientLayer.endPoint = _endPoint;
+        }
         
         if (!CGRectEqualToRect(_gradientLayer.frame, CGRectZero)) {
             [self.layer insertSublayer:_gradientLayer atIndex:0];
